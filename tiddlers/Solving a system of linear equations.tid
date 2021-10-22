@@ -1,0 +1,45 @@
+created: 20211022035953502
+modified: 20211022081000224
+tags: example
+title: Solving a system of linear equations
+type: text/vnd.tiddlywiki
+
+''Example.'' Solve the following system of linear equations. How many solutions are there?
+
+$$
+\begin{aligned}
+x+2y &= 7\\
+3x+4y &= 8\\
+5x+6y&=9
+\end{aligned}
+$$
+
+//Solution.//
+
+<div class="sagecompute"><script type="text/x-sage">
+A = matrix(3,2,[1,2,3,4,5,6])
+b = vector([7,8,9])
+Ab = A.augment(b,subdivide=True)
+print(Ab)
+print(Ab.rref())
+</script></div>
+{{scsetup}}
+
+From the RREF, we see that $$x=-6$$ and $$y=13/2$$. The system has a unique solution.
+
+Let's confirm this with a graph:
+
+<div class="sagecompute"><script type="text/x-sage">
+f(x) = (7-x)/2
+g(x) = (8-3*x)/4
+h(x) = (9-5*x)/6
+pic1 = plot(f,-8,-4,thickness=1,color='blue')
+pic2 = plot(g,-8,-4,thickness=1,color='red')
+pic3 = plot(h,-8,-4,thickness=1,color='green')
+show(pic1+pic2+pic3,gridlines=True,figsize=5)
+</script></div>
+{{scsetup}}
+
+---
+
+Next: {{{ [tag[example]after{!!title}] }}}

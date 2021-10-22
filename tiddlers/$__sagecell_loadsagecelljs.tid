@@ -1,0 +1,7 @@
+created: 20211022032049493
+modified: 20211022032145986
+tags: Sagecell-Hacks $:/tags/RawMarkup
+title: $:/sagecell/loadsagecelljs
+type: text/vnd.tiddlywiki
+
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>

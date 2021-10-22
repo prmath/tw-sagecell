@@ -1,0 +1,12 @@
+created: 20211022071148690
+modified: 20211022082050101
+tags: 
+title: My Wish List
+type: text/vnd.tiddlywiki
+
+The implimentation is a bit of a hack. It would be great if we can integrate sagecell more into Tiddlywiki. For example:
+
+* we can have `<$sagecell> </$sagecell>` widget with configurable settings.
+* we can setup sagecell to read data from tiddlers, for example values of a field.
+
+As I'm not a developer (and know nothing about javascript), this will remain in my dream :)

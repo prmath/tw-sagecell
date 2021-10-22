@@ -1,0 +1,5 @@
+created: 20211022072510413
+list: $:/.tb/macros/script $:/sagecell/enablejs $:/sagecell/loadsagecelljs $:/sagecell/fix-editor-height-codemirror scsetup $:/sagecell/snippet-sagecompute
+modified: 20211022072533628
+title: Sagecell-Hacks
+type: text/vnd.tiddlywiki

@@ -1,0 +1,8 @@
+created: 20211022033156698
+modified: 20211022033245449
+tags: Sagecell-Hacks
+title: scsetup
+type: text/vnd.tiddlywiki
+
+<script>sagecell.makeSagecell({inputLocation: "div.sagehidecode",linked:true,hide:["fullScreen","editor"]});</script>
+<script>sagecell.makeSagecell({inputLocation: "div.sagecompute",linked:true,hide:["fullScreen"]});</script>

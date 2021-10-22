@@ -1,0 +1,35 @@
+created: 20211022040603541
+modified: 20211022070121019
+tags: example
+title: Find limits from the graph (demonstration of sagehidecode)
+type: text/vnd.tiddlywiki
+
+''Example.'' A graph of a function $$f$$ is given below:
+
+<div class="sagehidecode"><script type="text/x-sage">
+p1 = line([(-4,1),(-2,4),(-1,2)],thickness=2,color='black')
+p2 = line([(-1,-2),(4,-2)],thickness=2,color='black')
+f(x) = 1/(x-4)
+p3 = plot(f,x,4.1,8,thickness=2,color='black')
+p4 = line([(4,-4),(4,10)],linestyle='dashed',color='black')
+whitedots = ((-2,4),(-1,2),(4,-2))
+wd = point(whitedots,size=50,rgbcolor='white',markeredgecolor='black')
+blackdots = ((-2,0),(-1,-2),(4,0))
+bd = point(blackdots,size=50,rgbcolor='black',markeredgecolor='black')
+pic=p1+p2+wd+bd+p3+p4
+show(pic,gridlines='major',ymax=5,figsize=6)
+</script></div>
+{{scsetup}}
+
+Find
+
+# $$\displaystyle \lim_{x\to 4^-}f(x)$$
+# $$\displaystyle \lim_{x\to 4^+}f(x)$$
+
+//Solution.//
+
+# $$\displaystyle \lim_{x\to 4^-}f(x) = -2$$
+# $$\displaystyle \lim_{x\to 4^+}f(x) = +\infty$$
+
+---
+Next: {{{ [tag[example]after{!!title}] }}}

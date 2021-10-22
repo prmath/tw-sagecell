@@ -1,0 +1,11 @@
+caption: Sagecell
+created: 20211022033852933
+modified: 20211022034538863
+tags: $:/tags/TextEditor/Snippet Sagecell-Hacks
+title: $:/sagecell/snippet-sagecompute
+type: text/vnd.tiddlywiki
+
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+{{scsetup}}

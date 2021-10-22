@@ -1,0 +1,56 @@
+created: 20211022034917224
+modified: 20211022080300050
+tags: example
+title: Sagecell basics
+type: text/vnd.tiddlywiki
+
+; The ~SageMath syntax is very simiar to Python. 
+
+<div class="sagecompute"><script type="text/x-sage">
+for i in range(3):
+  print('Hello world')
+x = 1
+</script></div>
+
+; We can use it as an advanced calculator.
+
+<div class="sagecompute"><script type="text/x-sage">
+print(2^(50))
+print(2**(50)) #python syntax also works
+print(sin(pi/7).n())
+print(x+2)
+</script></div>
+
+Note that the value of $$x$$ is defined in the first sagecell. All sagecells within the same tiddler are linked. (This is a setting for `sagecompute` class. We can change this by creating a new sagecell class. See Step 3 of [[How to use Sagecells in Tiddlywiki]].)
+
+; Symbolic computation
+
+<div class="sagecompute"><script type="text/x-sage">
+expand((x-2)^5)
+</script></div>
+
+; Graph plotting
+<div class="sagecompute"><script type="text/x-sage">
+plot(sin(x^2),x,-pi,pi,gridlines=true,figsize=5)
+</script></div>
+
+; Matrices
+<div class="sagecompute"><script type="text/x-sage">
+A = matrix([(1,2,3),(4,5,6),(7,8,9)])
+print(A)
+latex(A) # get latex code for the matrix A
+</script></div>
+
+With ~KaTeX plugin also installed, we can get ~LaTeX code of Sage objects and display it in a tiddler easily.
+$$
+\left(\begin{array}{rrr}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{array}\right)
+$$
+{{scsetup}}
+
+---
+
+Next: {{{ [tag[example]after{!!title}] }}}

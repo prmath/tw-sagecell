@@ -1,0 +1,127 @@
+created: 20211022030622950
+modified: 20211022082351309
+tags: doc
+title: How to use Sagecells in Tiddlywiki
+type: text/vnd.tiddlywiki
+
+''Quick Method.'' Just drag and drop <<tag "Sagecell-Hacks">> into your wiki and import the contents. Save and reload the wiki. Read Step 4 below for how to use sagecell.
+
+The contents are:
+
+* [1] [[$:/.tb/macros/script]]
+* [2] [[$:/sagecell/enablejs]]
+* [3] [[$:/sagecell/loadsagecelljs]]
+* [4] [[$:/sagecell/fix-editor-height-codemirror]] (fixed if using codemirror plugin)
+* [5] [[scsetup]]
+* [6] [[$:/sagecell/snippet-sagecompute]] (snippet)
+
+To "uninstall" sagecell, just delete all above tiddlers from your wiki.
+
+If you have time, I recommend you create each of the above tiddlers yourself, so you know what you are doing at each step, and why each tiddler is needed. See the explanation below.
+
+! Detailed Explanation
+
+!! 1. Install enable-js plugin
+Sagecell is an external javascript. By default (and for good reason), Tiddlywiki does not allow executing external javascripts. So we need to enable it first.
+
+* Download `enable-js` plugin from [[https://tobibeer.github.io/tw/enable-js/#script]] ''Read the red warning on the website''.
+** In this wiki: [[$:/.tb/macros/script]] ''[1]''
+* <div>
+
+Create a tiddler `$:/sagecell/enablejs` tagged `$:/tags/PageTemplate` with the following content:
+
+```
+<<script>>
+```
+This will ''globally'' enable javascript code anywhere in wiki. (I don't know how to use on and off mode with this implementation. It didn't work for some reason.)
+
+</div>
+
+** In this wiki: [[$:/sagecell/enablejs]] ''[2]''
+
+!! 2. Load Sagecells javascript
+* <div>
+
+Create a tiddler `$:/sagecell/loadsagecelljs` tagged `$:/tags/RawMarkup` with the following content:
+
+```
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+```
+This will load sagecells javascript to be used anywhere in wiki (including when in permalink?).
+</div>
+
+** In this wiki: [[$:/sagecell/loadsagecelljs]] ''[3]''
+
+!!! 2.1 Fixed-height issue with ~CodeMirror
+
+After loading the above javascript, and if the codemirror plugin is installed, you will notice a minor issue when editting tiddlers: the edior now has a fixed height. It doesn't expand to fit the contents like the usual behavihour. This is probably due to some stylesheet code from `embedded_sagecell.js`. We can fix this.
+
+* <div>
+
+Create a tiddler `$:/sagecell/fix-editor-height-codemirror` tagged `$:/tags/Stylesheet` with the following content:
+
+```
+.CodeMirror {
+  height: auto !important;
+}
+```
+</div>
+** In this wiki: [[$:/sagecell/fix-editor-height-codemirror]] ''[4]''
+
+!! 3. Setup sagecells
+
+* <div>
+
+Create a tiddler `scsetup` with the following contents (which define "classes" of sagecell):
+
+```
+<script>sagecell.makeSagecell({inputLocation: "div.sagehidecode",linked:true,hide:["fullScreen","editor"]});</script>
+<script>sagecell.makeSagecell({inputLocation: "div.sagecompute",linked:true,hide:["fullScreen"]});</script>
+```
+This creates two classes (with different settings) of sagecell. The `sagehidecode` class will hide sage codes and only show evaluation button, whereas the `sagecompute` class shows the code as well. More options are possible (e.g. change language from `sage` to `python`, `r`, etc.). See https://github.com/sagemath/sagecell/blob/master/doc/embedding.rst for more information.
+</div>
+
+** In this wiki: [[scsetup]] ''[5]''
+
+* <div>
+
+For convenience, create a snippet `$:/sagecell/snippet-sagecompute` tagged `$:/tags/TextEditor/Snippet` with caption `Sagecell` and with the following content:
+
+```
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+{{scsetup}}
+```
+</div>
+
+** In this wiki: [[$:/sagecell/snippet-sagecompute]] ''[6]''
+
+
+
+!! 4. Using sagecells
+
+Use the snippet Sagecell or include the following code where we want a sagecell:
+
+```
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+{{scsetup}}
+```
+If we include more than one sagecells in a tiddler, we can use `{{scsetup}}` at the end of the tiddler.
+
+```
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+{{scsetup}}
+```
+
+---
+
+See [[Examples]]

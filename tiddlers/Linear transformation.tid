@@ -1,0 +1,73 @@
+created: 20211022041442532
+modified: 20211022071050416
+tags: example
+title: Linear transformation
+type: text/vnd.tiddlywiki
+
+Here's a demonstration of using matrix transformations to transforma a simple image.
+
+Suppose we want to rotate the following triangle by $$\pi/2$$ (or $$90^\circ$$) counter-clockwise around the origin.
+
+<div class="sagecompute"><script type="text/x-sage">
+# create a list of points (vertices of a triangle)
+pts = [(3,1),(2,6),(-1,4),(3,1)]
+# plot this list of points
+fig = list_plot(pts,plotjoined=True,marker='o',legend_label="mytriangle")
+show(fig,gridlines=True,figsize=4)
+</script></div>
+
+
+Let $$A$$ be the matrix of rotation by $$\pi/2$$ counter-clockwise. Let $$P$$ be a matrix whose columns are coordinates of the vertices of the triangle.
+$$
+A = \left(\begin{array}{rr}
+0 & -1 \\
+1 & 0
+\end{array}\right), \qquad P = \left(\begin{array}{rrrr}
+3 & 2 & -1 & 3 \\
+1 & 6 & 4 & 1
+\end{array}\right)
+$$
+Then $$AP$$ is the matrix whose columns are coordinates of the resulting points under the map $$A$$.
+
+<div class="sagecompute"><script type="text/x-sage">
+A = matrix(2,2,[0,-1,1,0]) # matrix of rotation
+pts = [(3,1),(2,6),(-1,4),(3,1)] # create a list of points (vertices of a triangle)
+P = matrix(pts).T # The coordinates of vertices become columns of P
+AP = A*P
+show(AP)
+</script></div>
+
+Let's plot the images from $$P$$ and $$AP$$ together.
+
+<div class="sagecompute"><script type="text/x-sage">
+pts1 = P.columns() # vertices of mytriangle
+pts2 = AP.columns() # vertices of the new mytriangle
+
+g1 = list_plot(pts1,plotjoined=True,marker='o',color='blue',legend_label="mytriangle")
+g2 = list_plot(pts2,plotjoined=True,marker='o',color='red',legend_label="myrotatedtriangle")
+show(g1+g2,gridlines=True,figsize=4)
+</script></div>
+
+!! Exercises
+
+''Q1.'' Rotate `mytriangle` by $$\pi/3$$ radians counter-clockwise.
+
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+
+''Q2.'' Rotate `mytriangle` by $$\pi/6$$ radians clockwise.
+
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+
+''Q3.'' Reflect `mytriangle` about the $$x$$-axis.
+
+<div class="sagecompute"><script type="text/x-sage">
+
+</script></div>
+
+
+
+{{scsetup}}

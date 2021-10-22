@@ -1,0 +1,38 @@
+created: 20211022035431981
+modified: 20211022070137026
+tags: example
+title: Reduced Row Echelon Form
+type: text/vnd.tiddlywiki
+
+''Example.'' Reduce to the following matrix to its RREF:
+$$
+A = \begin{pmatrix}
+-7 & -28 & -11 & 22 & -43 & 18 & -3 & 11 \\
+-3 & -12 & -8 & 16 & -25 & 11 & 2 & 8 \\
+2 & 8 & 1 & -2 & 8 & -3 & 3 & -1 \\
+4 & 16 & 7 & -14 & 26 & -11 & 1 & -7
+\end{pmatrix}
+$$
+
+//Solution.// Create the matrix in Sage.
+
+<div class="sagecompute"><script type="text/x-sage">
+A = matrix([(-7, -28, -11, 22, -43, 18, -3, 11),
+ (-3, -12, -8, 16, -25, 11, 2, 8),
+ (2, 8, 1, -2, 8, -3, 3, -1),
+ (4, 16, 7, -14, 26, -11, 1, -7)]
+)
+print(A)
+</script></div>
+
+Find its RREF with the command `A.rref()`.
+
+<div class="sagecompute"><script type="text/x-sage">
+A.rref()
+</script></div>
+
+{{scsetup}}
+
+---
+
+Next: {{{ [tag[example]after{!!title}] }}}

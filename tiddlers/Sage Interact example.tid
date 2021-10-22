@@ -1,0 +1,30 @@
+created: 20211022041036617
+modified: 20211022081926959
+tags: example
+title: Sage Interact example
+type: text/vnd.tiddlywiki
+
+With [[Sage interact|https://wiki.sagemath.org/interact/]], we can create an interactive applet that can take user input at runtime.
+
+For example, here we can generate "infinitely many" algebraic limit questions for quizzes :)
+
+<div class="sagehidecode"><script type="text/x-sage">
+@interact
+def findlimit(upper_bound = selector([3..10],default=5), auto_update=False):
+    a = Integer(randint(-upper_bound,upper_bound))
+    b = Integer(randint(-upper_bound,upper_bound))
+    k = Integer(randint(1,upper_bound))
+    m = Integer(randint(1,upper_bound))
+    s = Integer(randint(0,1))
+    p(x) = (-1)^s*k*(x-a)*(x-b); q(x) = m*(x-a);
+    ans = (p(x)/q(x)).subs(x=a)
+    pretty_print(html('Evaluate the following limit:'))
+    show('\\lim_{x\\to'+latex(a)+ '}\\frac{'+latex(p(x).expand())+'}{'+latex(q(x).expand())+'}')
+    pretty_print(html('Solution:'))
+    show('\\lim_{x\\to'+latex(a)+ '}\\frac{'+latex(p(x))+'}{'+m+'('+latex(x-a)+')} = ' +latex(ans))
+</script></div>
+{{scsetup}}
+
+---
+
+Next: {{{ [tag[example]after{!!title}] }}}

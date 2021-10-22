@@ -1,0 +1,16 @@
+created: 20211022051442060
+modified: 20211022082635260
+tags: 
+title: Home
+type: text/vnd.tiddlywiki
+
+~SageMath (https://www.sagemath.org/) is a great, free, open-source, mathematical software. It is used by many researchers and mathematicians. 
+
+For simple codes, we can use it online at https://sagecell.sagemath.org/ (no installation required). The sagecell website already gives [[simple instructions|https://sagecell.sagemath.org/static/about.html]] on how to use sagecell on any html website. To use it in Tiddlywiki, it's not quite as trivial. Here I demonstrate how I enabled sagecell in Tiddlywiki.
+
+* ''Warning 1:'' The implementation invloves enabling Tiddlywiki to run any javascript code (which many consider to be unsafe). Use it at your own risk. 
+** If you are the only owner of your wiki, this should be fine (I think). 
+* ''Warning 2:'' As usual, before you try it with your wiki, back it up first. 
+* [[How to use Sagecells in Tiddlywiki]]
+* [[Examples]]
+* [[My Wish List]]
