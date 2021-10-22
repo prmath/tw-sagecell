@@ -1,5 +1,5 @@
 created: 20211022034917224
-modified: 20211022080300050
+modified: 20211022094846745
 tags: example
 title: Sagecell basics
 type: text/vnd.tiddlywiki
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 <div class="sagecompute"><script type="text/x-sage">
 for i in range(3):
   print('Hello world')
-x = 1
+t = 1
 </script></div>
 
 ; We can use it as an advanced calculator.
@@ -18,10 +18,10 @@ x = 1
 print(2^(50))
 print(2**(50)) #python syntax also works
 print(sin(pi/7).n())
-print(x+2)
+print(t+2)
 </script></div>
 
-Note that the value of $$x$$ is defined in the first sagecell. All sagecells within the same tiddler are linked. (This is a setting for `sagecompute` class. We can change this by creating a new sagecell class. See Step 3 of [[How to use Sagecells in Tiddlywiki]].)
+Note that the value of $$t$$ is defined in the first sagecell. All sagecells within the same tiddler are linked. (This is a setting for `sagecompute` class. We can change this by creating a new sagecell class. See Step 3 of [[How to use Sagecells in Tiddlywiki]].)
 
 ; Symbolic computation
 
